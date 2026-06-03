@@ -1,30 +1,168 @@
-html:5
-lang='en'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agroindústria: Equilíbrio</title>
+    <style>
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
+        body {
+            background: linear-gradient(to right, #f0f8ff, #e6ffe6);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
 
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
 
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
 
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+        }
 
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
 
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
 
+        .card h3 {
+            margin-bottom: 1rem;
+            color: #388e3c;
+        }
 
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+        }
 
-div class='caerd'>
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
 
-<h2>lucas</h2>
-<p>estudante</p>
+        /* ANIMAÇÃO JS */
+        .balance {
+            width: 100px;
+            height: 100px;
+            margin: 2rem auto;
+            background: radial-gradient(circle at 50% 50%, #a5d6a7, #66bb6a);
+            border-radius: 50%;
+            position: relative;
+        }
 
-<UL>
-    <li>jogos</li>
-    <li>pizza</li>
-    <li>namorada</li>
- <UL>
-<div>
+        .balance::before, .balance::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background: #4caf50;
+            top: -50px;
+            left: 40px;
+            transform-origin: top center;
+            border-radius: 10px;
+        }
 
-    
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Agroindústria: Equilíbrio</h1>
+        <p>Conectando sustentabilidade, tecnologia e produção agrícola</p>
+    </header>
 
+    <main>
+        <div class="balance" id="balance"></div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Sustentabilidade">
+                <h3>Sustentabilidade</h3>
+                <p>Práticas agrícolas que respeitam o meio ambiente e garantem recursos para o futuro.</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1995/1995521.png" alt="Tecnologia">
+                <h3>Tecnologia</h3>
+                <p>Inovações que otimizam a produção e promovem o equilíbrio entre indústria e natureza.</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Produção">
+                <h3>Produção</h3>
+                <p>Alimentos de qualidade produzidos com eficiência e responsabilidade ambiental.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Agroindústria Equilíbrio | Todos os direitos reservados
+    </footer>
+
+    <script>
+        // ANIMAÇÃO DO ELEMENTO "BALANCE"
+        const balance = document.getElementById('balance');
+        let angle = 0;
+        let direction = 1;
+
+        function sway() {
+            angle += direction * 0.5;
+            if(angle > 10 || angle < -10) direction *= -1;
+            balance.style.transform = `rotate(${angle}deg)`;
+            requestAnimationFrame(sway);
+        }
+
+        sway();
+    </script>
 </body>
-<html>
+</html>
